@@ -1,0 +1,2 @@
+# MyReduxDemo
+一个ReactNative的简单Redux测试Demo，实现了加减一和修改文本的功能
