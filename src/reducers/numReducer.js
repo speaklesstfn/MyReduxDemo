@@ -4,12 +4,22 @@
 
 import * as actionTypes from '../constants/actionTypes';
 
-export default function numChange(state = 0, action) {
+const numInitState = {
+    num: 0,
+};
+
+export default function numChange(state = numInitState, action) {
     switch (action.type) {
         case actionTypes.INCREMENT:
-            return state + 1;
+            return {
+                ...state,
+                num: state.num + 1,
+            };
         case actionTypes.DECREMENT:
-            return state - 1;
+            return {
+                ...state,
+                num: state.num - 1,
+            };
         default:
             return state;
     }

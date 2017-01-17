@@ -27,3 +27,17 @@ export const textUpdate = () => {
 
     };
 }
+
+export const login = () => {
+    console.log("action login");
+    return ((dispatch) => {
+        dispatch({type: actionTypes.START_LOGIN});
+        new Promise(function (resolve, reject) {
+            setTimeout(() => {
+                resolve('haha');
+            }, 3000);
+        }).then((msg) => {
+            dispatch({type: actionTypes.LOGIN_SUCCES});
+        });
+    });
+}

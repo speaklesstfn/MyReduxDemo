@@ -4,10 +4,17 @@
 
 import * as actionTypes from '../constants/actionTypes';
 
-export default function textChange(state = '', action) {
+const textInitState = {
+    text: '',
+};
+
+export default function textChange(state = textInitState, action) {
     switch (action.type) {
         case actionTypes.TEXT_UPDATE:
-            return state + '_change';
+            return {
+                ...state,
+                text: state.text + '_change',
+            };
         default:
             return state;
     }

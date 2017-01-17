@@ -4,12 +4,14 @@
 
 import {combineReducers} from 'redux';
 
-import num from './numReducer';
-import text from './textReducer';
+import numReducer from './numReducer';
+import textReducer from './textReducer';
+import loginReducer from './loginReducer';
 
 const rootReducer = combineReducers({
-    num,
-    text,
+    nReducer: numReducer,
+    tReducer: textReducer,
+    lReducer: loginReducer,
 });
 
 export default rootReducer;
