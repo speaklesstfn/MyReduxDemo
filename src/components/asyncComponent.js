@@ -3,7 +3,7 @@
  */
 
 import React, {Component} from 'react';
-import {StyleSheet, TouchableHighlight, Text, View, ScrollView,} from 'react-native';
+import {StyleSheet, TouchableHighlight, Text, View, ActivityIndicator,} from 'react-native';
 import {connect} from 'react-redux';
 import {login} from '../actions/todo';
 
@@ -12,12 +12,26 @@ import {login} from '../actions/todo';
  */
 class asyncComponent extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoging: false,
+            // resultTxt: '用户还未登陆',
+        };
+    }
+
     render() {
+
+        let spinner = (this.state.isLoging && this.props.status === 'starting')
+            ? (<ActivityIndicator size={'large'}/>) : (<View/>);
+
         return (
             <View style={styles.container}>
                 <TouchableHighlight style={styles.button} onPress={this.pressLogin}>
-                    <Text style={styles.buttonText}>点我登陆</Text>
+                    <Text style={styles.buttonText}>点我3秒后登陆成功</Text>
                 </TouchableHighlight>
+
+                {spinner}
 
                 <Text style={styles.resultText}>已登陆用户：{this.props.user}</Text>
             </View>
@@ -25,6 +39,9 @@ class asyncComponent extends Component {
     }
 
     pressLogin = () => {
+        this.setState({
+            isLoging: true,
+        });
         const {dispatch} = this.props;
         dispatch(login());
     };
@@ -33,8 +50,9 @@ class asyncComponent extends Component {
 function select(state) {
     return {
         //此处state中的属性定义在了rootReducer里了。
-        isLogined: state.lReducer.isLogined,
+        // isLogined: state.lReducer.isLogined,
         user: state.lReducer.user,
+        status: state.lReducer.status,
     };
 }
 

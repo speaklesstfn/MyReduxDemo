@@ -16,7 +16,7 @@ export default function startLogin(state = loginInitState, action) {
             return {
                 ...state,
                 isLogined: true,
-                user: 'tfn',
+                user: state.user + ' tfn',
                 status: 'done',
             };
         case actionTypes.START_LOGIN:
