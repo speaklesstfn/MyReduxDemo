@@ -19,6 +19,11 @@ class syncComponent extends Component {
                 <View style={styles.title}>
                     <Text style={styles.titleText}>Redux测试Demo</Text>
                 </View>
+
+                <View style={styles.subTitle}>
+                    <Text style={styles.subTitleText}>同步Action</Text>
+                </View>
+
                 <TouchableHighlight style={styles.button} onPress={this.pressIncrement.bind(this)}>
                     <Text style={styles.buttonText}>点我数值加一</Text>
                 </TouchableHighlight>
@@ -77,6 +82,17 @@ const styles = StyleSheet.create({
         fontSize: 25,
         textAlign: 'center',
     },
+    subTitle: {
+        marginTop:10,
+        height: 35,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'darkgrey',
+    },
+    subTitleText: {
+        fontSize: 18,
+        textAlign: 'center',
+    },
     button: {
         marginTop: 20,
         height: 35,
@@ -96,8 +112,8 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginLeft: 20,
     },
-    scrollStyle:{
+    scrollStyle: {
         marginTop: 20,
-        height:100,
+        height: 100,
     },
 });

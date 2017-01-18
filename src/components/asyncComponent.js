@@ -27,6 +27,11 @@ class asyncComponent extends Component {
 
         return (
             <View style={styles.container}>
+
+                <View style={styles.subTitle}>
+                    <Text style={styles.subTitleText}>异步Action</Text>
+                </View>
+
                 <TouchableHighlight style={styles.button} onPress={this.pressLogin}>
                     <Text style={styles.buttonText}>点我3秒后登陆成功</Text>
                 </TouchableHighlight>
@@ -61,6 +66,17 @@ export default connect(select)(asyncComponent);
 const styles = StyleSheet.create({
     container: {
         // flex: 1,
+    },
+    subTitle: {
+        marginTop:10,
+        height: 35,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'darkgrey',
+    },
+    subTitleText: {
+        fontSize: 18,
+        textAlign: 'center',
     },
     button: {
         marginTop: 20,
